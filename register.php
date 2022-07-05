@@ -8,7 +8,7 @@ if(isset($_POST["register"])){
     $username = htmlspecialchars($_POST["username"]);
     $email = htmlspecialchars($_POST["email"]);
     $pass = htmlspecialchars($_POST["password"]);
-    $pass_rep = htmlspecialchars($_POST["password_rep"]);
+    $pass_rep = htmlspecialchars($_POST["password_confirmation"]);
 
     $sql = "SELECT * FROM registration WHERE username = '$username';";
     $user=mysqli_query($conn,$sql);
@@ -34,44 +34,64 @@ if(isset($_POST["register"])){
 
 ?>
 
-<form action="./register.php" method="post" class="row g-3 needs-validation" novalidate >
-    <input type="hidden" name="register">
-  <div class="col-md-4">
-    <label for="validationCustom01" class="form-label">Name</label>
-    <input type="text" name="name" class="form-control" id="validationCustom01" required>
-  </div>
-  <div class="col-md-4">
-    <label for="validationCustomUsername" class="form-label">Username</label>
-    <div class="input-group has-validation">
-      <input type="text" name="username" class="form-control" id="validationCustomUsername" aria-describedby="inputGroupPrepend" required>
+<section class="vh-200" style="background-color: #6a11cb;">
+  <div class="mask d-flex align-items-center h-100 gradient-custom-3">
+    <div class="container h-100">
+      <div class="row d-flex justify-content-center align-items-center h-100" style="padding: 25px">
+        <div class="col-12 col-md-9 col-lg-7 col-xl-6">
+          <div class="card" style="border-radius: 15px;">
+            <div class="card-body p-10">
+              <h2 class="text-uppercase text-center mb-2">ایجاد حساب</h2>
+
+              <form action="" method="post">
+
+                <div class="form-outline mb-1">
+                  <input type="text" name="name" class="form-control form-control-lg" />
+                  <label class="form-label" for="form3Example1cg">نام</label>
+                </div>
+
+                <div class="form-outline mb-1">
+                  <input type="text" name="username" class="form-control form-control-lg" />
+                  <label class="form-label" for="form3Example1cg">نام کاربری</label>
+                </div>
+
+                <div class="form-outline mb-1">
+                  <input type="email" name="email" class="form-control form-control-lg" />
+                  <label class="form-label" for="form3Example3cg">ایمیل</label>
+                </div>
+
+                <div class="form-outline mb-1">
+                  <input type="password" name="password" class="form-control form-control-lg" />
+                  <label class="form-label" for="form3Example4cg">رمز عبور</label>
+                </div>
+
+                <div class="form-outline mb-1">
+                  <input type="password" name="password_confirmation" class="form-control form-control-lg" />
+                  <label class="form-label" for="form3Example4cdg">تکرار رمز عبور</label>
+                </div>
+
+                <div class="d-flex justify-content-center">
+                  <button type="submit" name="register"
+                    class="btn btn-success btn-block btn-lg gradient-custom-4 text-body">ایجاد حساب</button>
+                </div>
+                <br>
+
+                <div class="alert alert-light" role="alert">
+                  <?php echo $error ?>
+                </div>
+
+                <p class="text-center text-muted mt-5 mb-0">اگر قبلا ثبت نام کرده اید؟ <a href="./login.php"
+                    class="fw-bold text-body"><u>ورود</u></a></p>
+
+              </form>
+
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
-  <div class="col-md-4">
-    <label for="validationCustomUsername" class="form-label">Email</label>
-    <div class="input-group has-validation">
-      <input type="text" name="email" class="form-control" id="validationCustomUsername" aria-describedby="inputGroupPrepend" required>
-    </div>
-  </div>
-  <div class="col-md-4">
-    <label for="validationCustomUsername" class="form-label">Password</label>
-    <div class="input-group has-validation">
-      <input type="password" name="password" class="form-control" id="validationCustomUsername" aria-describedby="inputGroupPrepend" required>
-    </div>
-  </div>
-  <div class="col-md-4">
-    <label for="validationCustomUsername" class="form-label">Password repeat</label>
-    <div class="input-group has-validation">
-      <input type="password" name="password_rep" class="form-control" id="validationCustomUsername" aria-describedby="inputGroupPrepend" required>
-    </div>
-  </div>
-  </div>
-  <div class="col-12">
-    <button class="btn btn-primary" type="submit">Submit form</button>
-  </div>
-  <div class="alert alert-danger" role="alert">
-    <?php echo $error ?>
-  </div>
-</form>
+</section>
 
 <?php
 require ("footer.php");

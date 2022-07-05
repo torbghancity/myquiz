@@ -1,7 +1,12 @@
 <?php
+
 require ("header.php");
 require ("../connection.php");
 require ("../function.php");
+
+
+
+
 $error="";
 
 if (isset($_POST["insert"])) {
@@ -50,7 +55,7 @@ if (isset($_POST["insert"])) {
                                                 <div class="form-group">
                                                     <button type="submit" name="insert" class="btn btn-lg btn-info btn-success">Add Exam</button>
                                                 </div>
-                                                <div class="alert alert-danger" role="alert">
+                                                <div class="alert alert-light" role="alert">
                                                     <?php echo $error ?>
                                                 </div>
                                             </form>  

@@ -151,7 +151,7 @@ if (isset($_POST["insert_image"])) {
                                                 <div class="form-group">
                                                     <button type="submit" name="insert_text" class="btn btn-lg btn-info btn-success">Add Question</button>
                                                 </div>
-                                                <div class="alert alert-danger" role="alert">
+                                                <div class="alert alert-light" role="alert">
                                                     <?php echo $error_text ?>
                                                 </div>
                                             </form>  
@@ -190,7 +190,7 @@ if (isset($_POST["insert_image"])) {
                                                 <div class="form-group">
                                                     <button type="submit" name="insert_image" class="btn btn-lg btn-info btn-success">Add Question</button>
                                                 </div>
-                                                <div class="alert alert-danger" role="alert">
+                                                <div class="alert alert-light" role="alert">
                                                     <?php echo $error_image ?>
                                                 </div>
                                             </form>  

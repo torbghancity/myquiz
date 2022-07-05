@@ -58,7 +58,7 @@ if (isset($_POST["edit"])) {
                                                 <div class="form-group">
                                                     <button type="submit" name="edit" class="btn btn-lg btn-info btn-success">Edit Exam</button>
                                                 </div>
-                                                <div class="alert alert-danger" role="alert">
+                                                <div class="alert alert-light" role="alert">
                                                     <?php echo $error ?>
                                                 </div>
                                             </form>  
