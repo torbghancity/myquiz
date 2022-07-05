@@ -12,7 +12,7 @@ $result = mysqli_query($conn,$sql);
 $exam_list = mysqli_fetch_assoc($result);
 $category = $exam_list['category'];
 
-//get question by text
+//Add question by text
 
 if (isset($_POST["insert_text"])) {
     $question = $_POST["question_text"];
@@ -45,7 +45,7 @@ if (isset($_POST["insert_text"])) {
     }
 }
 
-//get question by image
+//Add question by image
 
 if (isset($_POST["insert_image"])) {
     $question = $_POST["question_image"];
@@ -197,6 +197,123 @@ if (isset($_POST["insert_image"])) {
                                         </div>
                                     </div>
                                 </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="card">
+                            <div class="card-header">
+                                <strong class="card-title">Exam Table</strong>
+                            </div>
+                            <div class="card-body">
+                                <table class="table table-bordered">
+                                    <thead>
+                                        <tr>
+                                            <th scope="col">#</th>
+                                            <th scope="col">Question</th>
+                                            <th scope="col">Opt1</th>
+                                            <th scope="col">Opt2</th>
+                                            <th scope="col">Opt3</th>
+                                            <th scope="col">Opt4</th>
+                                            <th scope="col">Answer</th>                                                         
+                                            <th scope="col">Edit</th>                                                         
+                                            <th scope="col">Del</th>                                                         
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <?php
+                                            $sql = 
+                                                "SELECT * FROM `questions` WHERE `category` = '$category' ORDER BY `question_no` ASC;";
+                                            $result = mysqli_query($conn,$sql);
+                                            if (mysqli_num_rows($result)>0){                                                            
+                                                while ($question_list = mysqli_fetch_assoc($result)){
+                                                    ?>
+                                                    <tr>
+                                                        <th scope="row"><?php echo $question_list['question_no'] ?></th>
+                                                        <td><?php echo $question_list['question'] ?></td>
+                                                        <td>
+                                                            <?php
+                                                                
+                                                                if(strpos($question_list['opt1'],"opt_images/")!==false){
+                                                                    ?>
+                                                                    <img src=<?php echo $question_list['opt1']; ?> alt="Opt1" height="50px" width="50px">
+                                                                    <?php
+                                                                }else{
+                                                                    echo $question_list['opt1'];
+                                                                }
+                                                                  
+                                                            ?>
+                                                        </td>
+                                                        <td>
+                                                            <?php
+                                                                
+                                                                if(strpos($question_list['opt2'],"opt_images/")!==false){
+                                                                    ?>
+                                                                    <img src=<?php echo $question_list['opt2']; ?> alt="Opt2" height="50px" width="50px">
+                                                                    <?php
+                                                                }else{
+                                                                    echo $question_list['opt2'];
+                                                                }
+                                                                
+                                                            ?>
+                                                        </td>
+                                                        <td>
+
+                                                            <?php
+                                                                
+                                                                if(strpos($question_list['opt3'],"opt_images/")!==false){
+                                                                    ?>
+                                                                    <img src=<?php echo $question_list['opt3']; ?> alt="Opt3" height="50px" width="50px">
+                                                                    <?php
+                                                                }else{
+                                                                    echo $question_list['opt3'];
+                                                                }
+                                                                  
+                                                            ?>
+
+                                                        </td>
+                                                        <td>
+
+                                                            <?php
+                                                                
+                                                                if(strpos($question_list['opt4'],"opt_images/")!==false){
+                                                                    ?>
+                                                                    <img src=<?php echo $question_list['opt4']; ?> alt="Opt4" height="50px" width="50px">
+                                                                    <?php
+                                                                }else{
+                                                                    echo $question_list['opt1'];
+                                                                }
+                                                                  
+                                                            ?>
+
+                                                        </td>
+                                                        <td>
+
+                                                            <?php
+                                                                
+                                                                if(strpos($question_list['answer'],"opt_images/")!==false){
+                                                                    ?>
+                                                                    <img src=<?php echo $question_list['answer']; ?> alt="answer" height="50px" width="50px">
+                                                                    <?php
+                                                                }else{
+                                                                    echo $question_list['answer'];
+                                                                }
+                                                                  
+                                                            ?>
+
+                                                        </td>
+                                                        <td><a href="find_image_text.php?id1= <?php echo $question_list['id']."&id=".$id ?>">Edit</a></td>                                                                    
+                                                        <td><a href="delete_question.php?id1= <?php echo $question_list['id']."&id=".$id ?>">Del</a></td>                                                                    
+                                                    </tr> 
+                                                    <?php
+                                                }
+                                            }
+                                        ?>    
+                                                                                        
+                                    </tbody>
+                                </table>
                             </div>
                         </div>
                     </div>

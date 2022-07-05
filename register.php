@@ -19,7 +19,7 @@ if(isset($_POST["register"])){
                 $sql = 
                     "INSERT INTO `registration`(`name`, `username`, `email`, `password`) VALUES ('$name','$username','$email','$pass');";
                 mysqli_query($conn,$sql);
-                $error="انجام شد";
+                header("location:./login.php");
             }else{
                 $error="رمز های عبور با هم یکسان نیستن";
             }

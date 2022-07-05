@@ -19,7 +19,7 @@
             $sql = 
                 "UPDATE `registration` SET `id_token`= '$token' WHERE `id`= '$id_user[id]';";
             mysqli_query($conn,$sql);
-            $error="انجام شد";
+            header("location:./home.php?id=".$token);
         }else{
             $error="در تکمیل موارد دقت کنید";
         }
