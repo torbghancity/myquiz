@@ -46,28 +46,28 @@ if(isset($_POST["register"])){
               <form action="" method="post">
 
                 <div class="form-outline mb-1">
-                  <input type="text" name="name" class="form-control form-control-lg" />
                   <label class="form-label" for="form3Example1cg">نام</label>
+                  <input type="text" name="name" class="form-control form-control-lg" />                  
                 </div>
 
                 <div class="form-outline mb-1">
-                  <input type="text" name="username" class="form-control form-control-lg" />
                   <label class="form-label" for="form3Example1cg">نام کاربری</label>
+                  <input type="text" name="username" class="form-control form-control-lg" />                  
                 </div>
 
                 <div class="form-outline mb-1">
-                  <input type="email" name="email" class="form-control form-control-lg" />
                   <label class="form-label" for="form3Example3cg">ایمیل</label>
+                  <input type="email" name="email" class="form-control form-control-lg" />                  
                 </div>
 
                 <div class="form-outline mb-1">
-                  <input type="password" name="password" class="form-control form-control-lg" />
                   <label class="form-label" for="form3Example4cg">رمز عبور</label>
+                  <input type="password" name="password" class="form-control form-control-lg" />                  
                 </div>
 
                 <div class="form-outline mb-1">
-                  <input type="password" name="password_confirmation" class="form-control form-control-lg" />
                   <label class="form-label" for="form3Example4cdg">تکرار رمز عبور</label>
+                  <input type="password" name="password_confirmation" class="form-control form-control-lg" />                  
                 </div>
 
                 <div class="d-flex justify-content-center">

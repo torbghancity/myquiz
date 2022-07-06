@@ -19,7 +19,7 @@
             $sql = 
                 "UPDATE `registration` SET `id_token`= '$token' WHERE `id`= '$id_user[id]';";
             mysqli_query($conn,$sql);
-            header("location:./home.php?id=".$token);
+            header("location:./choice_category.php");
         }else{
             $error="نام کاربری یا رمز ورود اشتباه است";
         }
