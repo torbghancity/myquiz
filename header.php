@@ -1,3 +1,15 @@
+<?php
+require ("./connection.php");
+
+if (isset($_COOKIE["id_token"])){
+  $sql = "SELECT * FROM `registration` WHERE `id_token` = '$_COOKIE[id_token]'; ";
+  $result = mysqli_query ($conn,$sql);
+  $user=mysqli_fetch_assoc ($result);
+
+}
+?>
+
+
 <!DOCTYPE html>
 <html lang="en" dir="rtl">
 <head>
@@ -13,14 +25,14 @@
   
 <nav class="navbar navbar-expand-lg bg-light">
       <div class="container-fluid">
-        <a class="navbar-brand" href="#" dideo-checked="true">سوالات آنلاین</a>
+        <h3 class="navbar-brand">سوالات آنلاین</h3>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <ul class="navbar-nav me-auto mb-2 mb-lg-0">
             <li class="nav-item">
-              <a class="nav-link active" aria-current="page" href="#" dideo-checked="true">خانه</a>
+              <a class="nav-link active" aria-current="page" href="/" dideo-checked="true">خانه</a>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="#" dideo-checked="true">درباره ما</a>
@@ -28,16 +40,22 @@
             <li class="nav-item">
               <a class="nav-link" href="#" dideo-checked="true">تماس با ما</a>
             </li>
-            <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false" dideo-checked="true">
-                کاربر
-              </a>
-              <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                <li><a class="dropdown-item" href="#" dideo-checked="true">مشخصات</a></li>                
-                <li><hr class="dropdown-divider"></li>
-                <li><a class="dropdown-item" href="#" dideo-checked="true">خروج</a></li>
-              </ul>
-            </li>            
+            <?php 
+              if (isset($_COOKIE["id_token"])){
+            ?>
+                <li class="nav-item dropdown">
+                  <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false" dideo-checked="true">
+                    <?php echo $user['name']; ?>
+                  </a>
+                  <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <li><a class="dropdown-item" href="#" dideo-checked="true">مشخصات</a></li>                
+                    <li><hr class="dropdown-divider"></li>
+                    <li><a class="dropdown-item" href="logout.php" dideo-checked="true">خروج</a></li>
+                  </ul>
+                </li>
+            <?php
+              }
+            ?>       
           </ul>
         </div>
       </div>

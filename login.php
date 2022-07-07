@@ -1,4 +1,5 @@
 <?php
+    session_start();
     require ("./connection.php");
     require ("header.php");
 
@@ -8,17 +9,18 @@
         $pass = htmlspecialchars($_POST["password"]);
 
         $sql = "SELECT * FROM registration WHERE username = '$username' AND password = '$pass';";
-        $user=mysqli_query($conn,$sql);
+        $result=mysqli_query($conn,$sql);
         
-        if(mysqli_num_rows($user)>0){
-            $token = random_int(10000000000, 99999999999999);
-            $id_user = mysqli_fetch_assoc ($user);
+        if(mysqli_num_rows($result)>0){
+          $id_user = mysqli_fetch_assoc ($result);
+          $token = random_int(10000000000, 99999999999999);
+          setcookie("id_token", $token);
 
-            setcookie("user_token", $token);
+          $sql= "UPDATE `registration` SET `id_token`='$token' WHERE `username` = '$username'; ";
+          mysqli_query($conn,$sql);
 
-            $sql = 
-                "UPDATE `registration` SET `id_token`= '$token' WHERE `id`= '$id_user[id]';";
-            mysqli_query($conn,$sql);
+          //$_SESSION["username"]=$id_user["ussername"];
+
             header("location:./choice_category.php");
         }else{
             $error="نام کاربری یا رمز ورود اشتباه است";
