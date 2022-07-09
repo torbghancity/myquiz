@@ -1,21 +1,8 @@
 <?php
+
 require ("header.php");
 require ("../connection.php");
 require ("../function.php");
-$error="";
-
-if (isset($_POST["insert"])) {
-    $add_exam = $_POST["add_exam"];
-    $add_time = $_POST["add_time"];
-    if ($add_exam!="" && $add_time!=""){
-    $sql = 
-        "INSERT INTO `exam_category`(`category`, `exam_time`) VALUES ('$add_exam','$add_time');";
-    mysqli_query($conn,$sql);
-    }else{
-        $error="تمام موارد را با دقت پر کنید لطفا";
-    }
-}
-
 
 ?>
         <div class="breadcrumbs">
@@ -63,7 +50,7 @@ if (isset($_POST["insert"])) {
                                                                     <th scope="row"><?php echo $Counter ?></th>
                                                                     <td><?php echo $exam_list['category'] ?></td>
                                                                     <td><?php echo $exam_list['exam_time'] ?></td>
-                                                                    <td><a href="add_edit_question.php?id= <?php echo $exam_list['id'] ?>">Select</a></td>                                                                    
+                                                                    <td><a href="add_edit_question.php?id= <?php echo $exam_list['id_category'] ?>">Select</a></td>                                                                    
                                                                 </tr> 
                                                                 <?php
                                                             }

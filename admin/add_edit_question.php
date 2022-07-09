@@ -6,8 +6,9 @@ require ("../function.php");
 $error_text="";
 $error_image="";
 
-$id = $_GET["id"];
-$sql = "SELECT * FROM `exam_category` WHERE `id`= $id;";
+$id_category = $_GET["id"];
+
+$sql = "SELECT * FROM `exam_category` WHERE `id_category`= '$id_category';";
 $result = mysqli_query($conn,$sql);
 $exam_list = mysqli_fetch_assoc($result);
 $category = $exam_list['category'];
@@ -24,7 +25,7 @@ if (isset($_POST["insert_text"])) {
     if ($question!="" && $answer!="" && $opt1!="" && $opt2!="" && $opt3!="" && $opt4!=""){
 
         $conter = 0 ;
-        $sql = "SELECT * FROM `questions` WHERE `category`= '$category' order by `id` ASC;";
+        $sql = "SELECT * FROM `questions` WHERE `id_category`= '$id_category' order by `id` ASC;";
         $result = mysqli_query($conn,$sql);
 
         if(mysqli_num_rows($result)>0){
@@ -37,8 +38,8 @@ if (isset($_POST["insert_text"])) {
 
         $conter = $conter + 1;
         $sql = 
-            "INSERT INTO `questions`(`question_no`, `question`, `opt1`, `opt2`, `opt3`, `opt4`, `answer`, `category`) 
-            VALUES ('$conter','$question','$opt1','$opt2','$opt3','$opt4','$answer','$category');";
+            "INSERT INTO `questions`(`question_no`, `question`, `opt1`, `opt2`, `opt3`, `opt4`, `answer`, `id_category`) 
+            VALUES ('$conter','$question','$opt1','$opt2','$opt3','$opt4','$answer','$id_category');";
         $result = mysqli_query($conn,$sql);
     }else{
         $error_text="تمام موارد را با دقت پر کنید لطفا";
@@ -81,7 +82,7 @@ if (isset($_POST["insert_image"])) {
         move_uploaded_file($_FILES["f_answer"]["tmp_name"],$address_set_answer);
 
         $conter = 0 ;
-        $sql = "SELECT * FROM `questions` WHERE `category`= '$category' order by `id` ASC;";
+        $sql = "SELECT * FROM `questions` WHERE `id_category`= '$id_category' order by `id` ASC;";
         $result = mysqli_query($conn,$sql);
 
         if(mysqli_num_rows($result)>0){
@@ -94,8 +95,8 @@ if (isset($_POST["insert_image"])) {
 
         $conter = $conter + 1;
         $sql = 
-            "INSERT INTO `questions`(`question_no`, `question`, `opt1`, `opt2`, `opt3`, `opt4`, `answer`, `category`) 
-            VALUES ('$conter','$question','$address_db1','$address_db2','$address_db3','$address_db4','$address_db_answer','$category');";
+            "INSERT INTO `questions`(`question_no`, `question`, `opt1`, `opt2`, `opt3`, `opt4`, `answer`, `id_category`) 
+            VALUES ('$conter','$question','$address_db1','$address_db2','$address_db3','$address_db4','$address_db_answer','$id_category');";
         $result = mysqli_query($conn,$sql);
     }else{
         $error_image="تمام موارد را با دقت پر کنید لطفا";
@@ -225,7 +226,7 @@ if (isset($_POST["insert_image"])) {
                                     <tbody>
                                         <?php
                                             $sql = 
-                                                "SELECT * FROM `questions` WHERE `category` = '$category' ORDER BY `question_no` ASC;";
+                                                "SELECT * FROM `questions` WHERE `id_category` = '$id_category' ORDER BY `question_no` ASC;";
                                             $result = mysqli_query($conn,$sql);
                                             if (mysqli_num_rows($result)>0){                                                            
                                                 while ($question_list = mysqli_fetch_assoc($result)){
@@ -304,8 +305,8 @@ if (isset($_POST["insert_image"])) {
                                                             ?>
 
                                                         </td>
-                                                        <td><a href="find_image_text.php?id1= <?php echo $question_list['id']."&id=".$id ?>">Edit</a></td>                                                                    
-                                                        <td><a href="delete_question.php?id1= <?php echo $question_list['id']."&id=".$id ?>">Del</a></td>                                                                    
+                                                        <td><a href="find_image_text.php?id1= <?php echo $question_list['id']."&id=".$id_category ?>">Edit</a></td>                                                                    
+                                                        <td><a href="delete_question.php?id1= <?php echo $question_list['id']."&id=".$id_category ?>">Del</a></td>                                                                    
                                                     </tr> 
                                                     <?php
                                                 }

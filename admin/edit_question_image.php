@@ -4,7 +4,7 @@ require ("../connection.php");
 require ("../function.php");
 
 $id1 = $_GET["id1"];
-$id = $_GET["id"];
+$id_category = $_GET["id"];
 
 $error_image="";
 
@@ -58,7 +58,7 @@ if (isset($_POST["update"])) {
         $sql = "UPDATE `questions` SET `question` = '$question' , `opt1` = '$address_db1', `opt2` = '$address_db2', `opt3` = '$address_db3', `opt4` = '$address_db4', `answer` = '$address_db_answer' WHERE `id` = $id1;";
         mysqli_query($conn,$sql);
 
-        header("location:./add_edit_question.php?id=".$id);
+        header("location:./add_edit_question.php?id=".$id_category);
 
     }else{
         $error_image="تمام موارد را با دقت پر کنید لطفا";

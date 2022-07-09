@@ -4,7 +4,7 @@ require ("../connection.php");
 require ("../function.php");
 
 $id1 = $_GET["id1"];
-$id = $_GET["id"];
+$id_category = $_GET["id"];
 
 $error_text="";
 
@@ -32,7 +32,7 @@ if (isset($_POST["update"])) {
         $sql = "UPDATE `questions` SET `question`= '$question' , `opt1`= '$opt1' , `opt2`= '$opt2' , `opt3`= '$opt3' , `opt4`= '$opt4', `answer`= '$answer' WHERE `id`=$id1;";
         $result = mysqli_query($conn,$sql);
 
-        header("location:./add_edit_question.php?id=".$id);
+        header("location:./add_edit_question.php?id=".$id_category);
 
     }else{
 

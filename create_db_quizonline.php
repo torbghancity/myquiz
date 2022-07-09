@@ -33,7 +33,8 @@ if ($conn->query($sql) === TRUE) {
     CREATE TABLE IF NOT EXISTS exam_category (
         id INT(5) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
         category VARCHAR(50) NOT NULL,
-        exam_time VARCHAR(50) NOT NULL);
+        exam_time VARCHAR(50) NOT NULL,
+        id_category int(50) UNSIGNED NOT NULL);
 
     CREATE TABLE IF NOT EXISTS questions (
         id INT(5) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
@@ -43,7 +44,7 @@ if ($conn->query($sql) === TRUE) {
         opt2 VARCHAR(200) NOT NULL,
         opt3 VARCHAR(200) NOT NULL,
         opt4 VARCHAR(200) NOT NULL,
-        category VARCHAR(50) NOT NULL,
+        id_category int(50) UNSIGNED NOT NULL,
         answer VARCHAR(200) NOT NULL);
 
     CREATE TABLE IF NOT EXISTS registration (

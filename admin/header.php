@@ -44,7 +44,7 @@
             <div id="main-menu" class="main-menu collapse navbar-collapse">
                 <ul class="nav navbar-nav">
                     <li>
-                        <a href="index.html"> <i class="menu-icon fa fa-dashboard"></i>Dashboard</a>
+                        <a href="home.php"> <i class="menu-icon fa fa-dashboard"></i>Dashboard</a>
                     </li>
                     <li>
                         <a href="home.php"> <i class="menu-icon fa fa-close"></i>Add & Edit Exam</a>

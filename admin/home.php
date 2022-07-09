@@ -13,12 +13,17 @@ if (isset($_POST["insert"])) {
     $add_exam = $_POST["add_exam"];
     $add_time = $_POST["add_time"];
     if ($add_exam!="" && $add_time!=""){
-    $sql = 
-        "INSERT INTO `exam_category`(`category`, `exam_time`) VALUES ('$add_exam','$add_time');";
-    mysqli_query($conn,$sql);
+
+        $Counter= random_int(0, 4000000000);
+
+        $sql = 
+            "INSERT INTO `exam_category`(`category`, `exam_time`,`id_category`) VALUES ('$add_exam','$add_time','$Counter');";
+        mysqli_query($conn,$sql);
+    
     }else{
         $error="تمام موارد را با دقت پر کنید لطفا";
     }
+
 }
 
 
