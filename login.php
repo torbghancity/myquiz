@@ -8,7 +8,7 @@
         $username = htmlspecialchars($_POST["username"]);
         $pass = htmlspecialchars($_POST["password"]);
 
-        $sql = "SELECT * FROM registration WHERE username = '$username' AND password = '$pass';";
+        $sql = "SELECT * FROM user WHERE username = '$username' AND password = '$pass';";
         $result=mysqli_query($conn,$sql);
         
         if(mysqli_num_rows($result)>0){
@@ -16,7 +16,7 @@
           $token = random_int(10000000000, 99999999999999);
           setcookie("id_token", $token);
 
-          $sql= "UPDATE `registration` SET `id_token`='$token' WHERE `username` = '$username'; ";
+          $sql= "UPDATE `user` SET `id_token`='$token' WHERE `username` = '$username'; ";
           mysqli_query($conn,$sql);
 
           //$_SESSION["username"]=$id_user["ussername"];

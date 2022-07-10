@@ -2,7 +2,7 @@
 require ("./connection.php");
 
 if (isset($_COOKIE["id_token"])){
-  $sql = "SELECT * FROM `registration` WHERE `id_token` = '$_COOKIE[id_token]'; ";
+  $sql = "SELECT * FROM `user` WHERE `id_token` = '$_COOKIE[id_token]'; ";
   $result = mysqli_query ($conn,$sql);
   $user=mysqli_fetch_assoc ($result);
 

@@ -47,7 +47,7 @@ if ($conn->query($sql) === TRUE) {
         id_category int(50) UNSIGNED NOT NULL,
         answer VARCHAR(200) NOT NULL);
 
-    CREATE TABLE IF NOT EXISTS registration (
+    CREATE TABLE IF NOT EXISTS user (
         id INT(5) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
         name VARCHAR(250) NOT NULL,
         username VARCHAR(250) NOT NULL,
@@ -56,7 +56,7 @@ if ($conn->query($sql) === TRUE) {
         email VARCHAR(100) NOT NULL);";
 
     if (mysqli_multi_query($conn, $sql)) {
-      echo "Table registration created successfully <br>";
+      echo "Table created successfully <br>";
     } else {
         die ("Error creating table: " . mysqli_error($conn));
     }

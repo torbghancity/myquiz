@@ -10,14 +10,14 @@ if(isset($_POST["register"])){
     $pass = htmlspecialchars($_POST["password"]);
     $pass_rep = htmlspecialchars($_POST["password_confirmation"]);
 
-    $sql = "SELECT * FROM registration WHERE username = '$username';";
+    $sql = "SELECT * FROM `user` WHERE `username` = '$username';";
     $result=mysqli_query($conn,$sql);
 
     if ($name!="" || $username!="" || $email!="" || $pass!=""){
         if(mysqli_num_rows($result)==0){
             if ($pass==$pass_rep){
                 $sql = 
-                    "INSERT INTO `registration`(`name`, `username`, `email`, `password`) VALUES ('$name','$username','$email','$pass');";
+                    "INSERT INTO `user`(`name`, `username`, `email`, `password`) VALUES ('$name','$username','$email','$pass');";
                 mysqli_query($conn,$sql);
                 header("location:./login.php");
             }else{
