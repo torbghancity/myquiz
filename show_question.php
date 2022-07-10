@@ -11,7 +11,7 @@ $exam_list = mysqli_fetch_assoc($res_exam);
 
 //get question by exam
 
-$sql= "SELECT * FROM `questions` WHERE `category` = '$exam_list[category]' ORDER BY `question_no` ASC;";
+$sql= "SELECT * FROM `questions` WHERE `id_category` = '$exam_list[id_category]' ORDER BY `question_no` ASC;";
 $res_question = mysqli_query($conn,$sql);
 $question_list = mysqli_fetch_assoc($res_question);
 
