@@ -1,31 +1,20 @@
 <?php
-    session_start();
     require ("./connection.php");
-    require ("header.php");
+    require ("./layout.php");
+    require ("./auth.php");
+
+    
 
     $error="";
     if(isset($_POST["login"])){
         $username = htmlspecialchars($_POST["username"]);
         $pass = htmlspecialchars($_POST["password"]);
 
-        $sql = "SELECT * FROM user WHERE username = '$username' AND password = '$pass';";
-        $result=mysqli_query($conn,$sql);
+        $error=login($username,$pass);
         
-        if(mysqli_num_rows($result)>0){
-          $id_user = mysqli_fetch_assoc ($result);
-          $token = random_int(10000000000, 99999999999999);
-          setcookie("id_token", $token);
-
-          $sql= "UPDATE `user` SET `id_token`='$token' WHERE `username` = '$username'; ";
-          mysqli_query($conn,$sql);
-
-          //$_SESSION["username"]=$id_user["ussername"];
-
-            header("location:./choice_category.php");
-        }else{
-            $error="نام کاربری یا رمز ورود اشتباه است";
-        }
     }
+
+    pageheader();
 ?>
 
 <section class="vh-100 gradient-custom">

@@ -1,7 +1,8 @@
 <?php
-session_start();
-require "header.php";
+require ("./layout.php");
 require ("./connection.php");
+
+pageheader();
 
 $sql= "SELECT * FROM `exam_category` ORDER BY `id` ASC;";
 $result = mysqli_query($conn,$sql);

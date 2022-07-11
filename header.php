@@ -1,15 +1,3 @@
-<?php
-require ("./connection.php");
-
-if (isset($_COOKIE["id_token"])){
-  $sql = "SELECT * FROM `user` WHERE `id_token` = '$_COOKIE[id_token]'; ";
-  $result = mysqli_query ($conn,$sql);
-  $user=mysqli_fetch_assoc ($result);
-
-}
-?>
-
-
 <!DOCTYPE html>
 <html lang="en" dir="rtl">
 <head>
@@ -41,11 +29,12 @@ if (isset($_COOKIE["id_token"])){
               <a class="nav-link" href="#" dideo-checked="true">تماس با ما</a>
             </li>
             <?php 
+            require ("./auth.php");
               if (isset($_COOKIE["id_token"])){
             ?>
                 <li class="nav-item dropdown">
                   <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false" dideo-checked="true">
-                    <?php echo $user['name']; ?>
+                    <?php echo find_user($_COOKIE["id_token"]); ?>
                   </a>
                   <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                     <li><a class="dropdown-item" href="#" dideo-checked="true">مشخصات</a></li>                
