@@ -1,36 +1,29 @@
 <?php
-require ("./connection.php");
-require ("header.php");
+
+use App\Layout\Layout;
+use App\Validation\Valid;
+
+require ("./vendor/autoload.php");
+
+$valid=new Valid;
 
 $error="";
 if(isset($_POST["register"])){
     $name=htmlspecialchars($_POST["name"]);
     $username = htmlspecialchars($_POST["username"]);
+    $contact = htmlspecialchars($_POST["contact"]);
     $email = htmlspecialchars($_POST["email"]);
     $pass = htmlspecialchars($_POST["password"]);
-    $pass_rep = htmlspecialchars($_POST["password_confirmation"]);
+    $re_pass = htmlspecialchars($_POST["password_confirmation"]);
+    $error=$valid->register_user($name, $username, $email, $contact, $pass, $re_pass);
 
-    $sql = "SELECT * FROM `user` WHERE `username` = '$username';";
-    $result=mysqli_query($conn,$sql);
-
-    if ($name!="" || $username!="" || $email!="" || $pass!=""){
-        if(mysqli_num_rows($result)==0){
-            if ($pass==$pass_rep){
-                $sql = 
-                    "INSERT INTO `user`(`name`, `username`, `email`, `password`) VALUES ('$name','$username','$email','$pass');";
-                mysqli_query($conn,$sql);
-                header("location:./login.php");
-            }else{
-                $error="رمز های عبور با هم یکسان نیستن";
-            }
-        }else{
-            $error="نام کاربری از قبل موجود هست";
-        }
-    }else{
-        $error="در تکمیل موارد دقت کنید";
+    if ($error == "done"){
+      redirect ("/login.php");
     }
-    
+
 }
+
+Layout::pageheader("ایجاد کاربر");
 
 ?>
 
@@ -56,6 +49,11 @@ if(isset($_POST["register"])){
                 </div>
 
                 <div class="form-outline mb-1">
+                  <label class="form-label" for="form3Example1cg">شماه تلفن</label>
+                  <input type="text" name="contact" class="form-control form-control-lg" />                  
+                </div>
+
+                <div class="form-outline mb-1">
                   <label class="form-label" for="form3Example3cg">ایمیل</label>
                   <input type="email" name="email" class="form-control form-control-lg" />                  
                 </div>
@@ -70,6 +68,7 @@ if(isset($_POST["register"])){
                   <input type="password" name="password_confirmation" class="form-control form-control-lg" />                  
                 </div>
 
+                <br>
                 <div class="d-flex justify-content-center">
                   <button type="submit" name="register"
                     class="btn btn-success btn-block btn-lg gradient-custom-4 text-body">ایجاد حساب</button>
@@ -94,5 +93,5 @@ if(isset($_POST["register"])){
 </section>
 
 <?php
-require ("footer.php");
+Layout::pagefooter();
 ?>

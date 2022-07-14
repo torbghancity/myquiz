@@ -1,0 +1,13 @@
+{
+    "name": "mobilesignal/myquiz",
+    "autoload": {
+        "psr-4": {
+            "Mobilesignal\\Myquiz\\": "src/",
+            "App\\" : "App/"
+        },
+        "files": [
+            "./function.php"
+        ]
+    },
+    "require": {}
+}

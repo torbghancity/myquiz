@@ -1,5 +1,11 @@
 <?php
 
-require ("./auth.php");
+require ("./vendor/autoload.php");
 
-logout();
+use App\Models\User;
+
+
+
+$user = new User;
+
+$user->logout();

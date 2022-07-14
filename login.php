@@ -1,20 +1,26 @@
 <?php
-    require ("./connection.php");
-    require ("./layout.php");
-    require ("./auth.php");
 
+require ("./vendor/autoload.php");
+
+use App\Auth\Auth;
+use App\Layout\Layout;
+
+
+$user = new Auth;
+
+$error="";
+if(isset($_POST["login"])){
+    $username = htmlspecialchars($_POST["username"]);
+    $pass = htmlspecialchars($_POST["password"]);
+
+    $error=$user->login($username,$pass);
     
-
-    $error="";
-    if(isset($_POST["login"])){
-        $username = htmlspecialchars($_POST["username"]);
-        $pass = htmlspecialchars($_POST["password"]);
-
-        $error=login($username,$pass);
-        
+    if ($error=="yes"){
+      redirect("./choice_category.php");
     }
+}
 
-    pageheader();
+Layout::pageheader("ورود");
 ?>
 
 <section class="vh-100 gradient-custom">
@@ -62,5 +68,5 @@
 
 
 <?php
-require ("footer.php");
+Layout::pagefooter();
 ?>

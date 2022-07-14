@@ -1,12 +1,17 @@
 <?php
-require ("./layout.php");
-require ("./connection.php");
 
-pageheader();
+require ("./vendor/autoload.php");
 
-$sql= "SELECT * FROM `exam_category` ORDER BY `id` ASC;";
-$result = mysqli_query($conn,$sql);
-if (mysqli_num_rows($result)>0){
+use App\Layout\Layout;
+use App\Models\Quiz_online;
+
+Layout::pageheader("انتخاب سوالات");
+
+$exam = new Quiz_online;
+
+$exam_list = $exam->get_all_exam();
+
+if (count($exam_list)>0){
     $error="یکی از آزمونها را انتخاب کنید";
 }else{
     $error = "هیچ آزمونی پیدا نشد";
@@ -24,9 +29,9 @@ if (mysqli_num_rows($result)>0){
                         <a href="" class="list-group-item list-group-item-action active"> <?php echo $error ; ?> </a>
 
                         <?php
-                            while ($exam_list=mysqli_fetch_assoc($result)) {
+                            foreach($exam_list as $list){
                                 ?>
-                                    <a href="/show_question.php?id=<?php echo $exam_list["id"]; ?>" class="list-group-item list-group-item-action"> <?php echo $exam_list["category"] . " --> زمان آزمون به دقیقه --> " . $exam_list["exam_time"]; ?> </a>
+                                    <a href="/show_question.php?id=<?php echo $list["id_category"]; ?>" class="list-group-item list-group-item-action"> <?php echo $list["category"] . " --> زمان آزمون به دقیقه --> " . $list["exam_time"]; ?> </a>
                                 <?php
                             }
                         ?>
@@ -40,5 +45,5 @@ if (mysqli_num_rows($result)>0){
 
 
 <?php
-require "footer.php";
+Layout::pagefooter();
 ?>

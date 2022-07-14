@@ -1,19 +1,25 @@
 <?php
-require "header.php";
-require ("./connection.php");
 
-//get exam by id
+use App\Layout\Layout;
+use App\Models\Quiz_online;
 
-$id=$_GET["id"];
-$sql= "SELECT * FROM `exam_category` WHERE `id` = $id;";
-$res_exam = mysqli_query($conn,$sql);
-$exam_list = mysqli_fetch_assoc($res_exam);
+require ("./vendor/autoload.php");
 
-//get question by exam
 
-$sql= "SELECT * FROM `questions` WHERE `id_category` = '$exam_list[id_category]' ORDER BY `question_no` ASC;";
-$res_question = mysqli_query($conn,$sql);
-$question_list = mysqli_fetch_assoc($res_question);
+
+Layout::pageheader("انتخاب سوالات");
+
+//get exam by id_category
+
+$id_category=$_GET["id"];
+
+$list= new Quiz_online;
+
+$exam=$list->get_exam_id($id_category);
+
+//get question by id_category
+
+$question_list = $list->get_question_id($id_category);
 
 
 ?>
@@ -24,7 +30,7 @@ $question_list = mysqli_fetch_assoc($res_question);
                 <div class="border">
                     <div class="question bg-white p-3 border-bottom">
                         <div class="d-flex flex-row justify-content-between align-items-center mcq">
-                            <h4>سوالات آزمون <?php echo $exam_list["category"]; ?></h4><span>timer</span>
+                            <h4>سوالات آزمون <?php echo $exam["category"]; ?></h4><span>minute <?php echo $exam["exam_time"]; ?></span>
                         </div>
                     </div>
 
@@ -123,5 +129,5 @@ $question_list = mysqli_fetch_assoc($res_question);
     </div>
 
 <?php
-require "footer.php";
+Layout::pagefooter();
 ?>
