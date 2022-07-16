@@ -1,9 +1,11 @@
 <?php
 
+use App\Function\Show;
 use App\Layout\Layout;
 use App\Models\Quiz_online;
 
 require ("./vendor/autoload.php");
+
 
 
 
@@ -19,7 +21,12 @@ $exam_list = $list->get_exam_id($id_category);
 
 //get question by id_category
 
-$question_list = $list->get_question_id($id_category);
+$question_list = new Show;
+
+$question_list = $question_list->show_question($id_category,1);
+var_dump($question_list);
+exit;
+
 $question_no = array_column($question_list, 'question_no');
 $question = array_column($question_list, 'question');
 

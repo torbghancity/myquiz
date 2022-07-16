@@ -6,7 +6,8 @@
             "App\\" : "App/"
         },
         "files": [
-            "./function.php"
+            "App/function/show_function.php",
+            "App/function/function.php"
         ]
     },
     "require": {}
