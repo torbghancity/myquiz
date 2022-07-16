@@ -13,13 +13,16 @@ Layout::pageheader("انتخاب سوالات");
 
 $id_category=$_GET["id"];
 
-$list= new Quiz_online;
+$list = new Quiz_online;
 
-$exam=$list->get_exam_id($id_category);
+$exam_list = $list->get_exam_id($id_category);
 
 //get question by id_category
 
 $question_list = $list->get_question_id($id_category);
+$question_no = array_column($question_list, 'question_no');
+$question = array_column($question_list, 'question');
+
 
 
 ?>
@@ -30,14 +33,14 @@ $question_list = $list->get_question_id($id_category);
                 <div class="border">
                     <div class="question bg-white p-3 border-bottom">
                         <div class="d-flex flex-row justify-content-between align-items-center mcq">
-                            <h4>سوالات آزمون <?php echo $exam["category"]; ?></h4><span>minute <?php echo $exam["exam_time"]; ?></span>
+                            <h4>سوالات آزمون <?php echo $exam_list["category"]; ?></h4><span>minute <?php echo $exam_list["exam_time"]; ?></span>
                         </div>
                     </div>
 
                     <div class="question bg-white p-3 border-bottom">
                         <div class="d-flex flex-row align-items-center question-title">
-                            <h3 class="text-danger"><?php echo $question_list["question_no"] . "-> "; ?></h3>
-                            <h5 class="mt-1 ml-2"><?php echo $question_list["question"]; ?></h5>
+                            <h3 class="text-danger"><?php echo $question_no["0"] . "-> "; ?></h3>
+                            <h5 class="mt-1 ml-2"><?php echo $question["0"]; ?></h5>
                         </div>
                         <?php
 
