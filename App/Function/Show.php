@@ -13,7 +13,7 @@ class Show
 
     $question_list = $question_list->get_question_id($id_category);
 
-    $question = array_column($question_list, 'question');
+    $question[] = [array_column($question_list, 'question_no'),array_column($question_list, 'question')];
         
     return $question[$question_no];
 

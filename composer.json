@@ -6,9 +6,10 @@
             "App\\" : "App/"
         },
         "files": [
-            "App/function/show_function.php",
-            "App/function/function.php"
-        ]
+            "function.php"
+        ]        
     },
-    "require": {}
+    "require": {
+        "jenssegers/blade": "^1.4"
+    }
 }

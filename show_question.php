@@ -24,7 +24,7 @@ $exam_list = $list->get_exam_id($id_category);
 $question_list = new Show;
 
 $question_list = $question_list->show_question($id_category,1);
-var_dump($question_list);
+var_dump($question_list[1]);
 exit;
 
 $question_no = array_column($question_list, 'question_no');
