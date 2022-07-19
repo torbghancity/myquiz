@@ -10,6 +10,7 @@
         ]        
     },
     "require": {
-        "jenssegers/blade": "^1.4"
+        "jenssegers/blade": "^1.4",
+        "voku/arrayy": "^7.9"
     }
 }

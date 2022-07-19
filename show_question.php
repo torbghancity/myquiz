@@ -1,6 +1,6 @@
 <?php
 
-use App\Function\Show;
+use App\Arrayy\Show;
 use App\Layout\Layout;
 use App\Models\Quiz_online;
 
@@ -24,7 +24,8 @@ $exam_list = $list->get_exam_id($id_category);
 $question_list = new Show;
 
 $question_list = $question_list->show_question($id_category,1);
-var_dump($question_list[1]);
+
+echo $question_list->question;
 exit;
 
 $question_no = array_column($question_list, 'question_no');
