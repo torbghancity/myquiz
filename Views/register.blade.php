@@ -1,3 +1,9 @@
+@extends("Layout.app")
+
+@section('Title','ایجاد کاربر')
+
+@section("content")
+
 <section class="vh-200" style="background-color: #6a11cb;">
   <div class="mask d-flex align-items-center h-100 gradient-custom-3">
     <div class="container h-100">
@@ -62,3 +68,5 @@
     </div>
   </div>
 </section>
+
+@endsection

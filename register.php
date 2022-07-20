@@ -23,9 +23,6 @@ if(isset($_POST["register"])){
 
 }
 
-Layout::pageheader("ایجاد کاربر");
-
 Layout::render("register",["error"=>$error]);
 
-Layout::pagefooter();
 ?>

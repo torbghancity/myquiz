@@ -1,10 +1,9 @@
 <?php
 
-require ("./vendor/autoload.php");
-
 use App\Auth\Auth;
 use App\Layout\Layout;
 
+require ("./vendor/autoload.php");
 
 $user = new Auth;
 
@@ -20,15 +19,6 @@ if(isset($_POST["login"])){
     }
 }
 
-Layout::pageheader("ورود");
 
 Layout::render("login",["error"=>$error]);
 
-?>
-
-
-
-
-<?php
-Layout::pagefooter();
-?>

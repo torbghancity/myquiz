@@ -1,3 +1,9 @@
+@extends("Layout.app")
+
+@section('Title', 'انتخاب سوالات')
+
+@section("content")
+
 <div class="container mt-5">
     <div class="d-flex justify-content-center row">
         <div class="col-md-10 col-lg-10">
@@ -18,3 +24,5 @@
         </div>
     </div>
 </div>
+
+@endsection
