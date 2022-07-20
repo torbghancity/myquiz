@@ -2,6 +2,8 @@
 
 namespace App\Models;
 
+use Arrayy\Arrayy;
+
 class Quiz_online extends BaseModel
 {
 
@@ -52,6 +54,7 @@ class Quiz_online extends BaseModel
         }
 
         return $list_question;
+        
     }
 
 }
