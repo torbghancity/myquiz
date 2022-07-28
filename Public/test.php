@@ -12,3 +12,9 @@ $arrayy = $arrayy->get_question_id(1350633573);
 
 print_r($arrayy); // show all array data
 echo "<hr>" . $arrayy[0]['question']; // print the first rows username
+
+
+if(strpos($question_list[$qu_no]["opt1"],"opt_images/")!==false){
+    var_dump($question_list[$qu_no]["opt1"],"opt_images/");
+    exit;
+}

@@ -3,7 +3,7 @@
 use App\Auth\Auth;
 use App\Layout\Layout;
 
-require ("./vendor/autoload.php");
+require ("../vendor/autoload.php");
 
 $user = new Auth;
 

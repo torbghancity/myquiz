@@ -13,7 +13,7 @@
             <div class="card-body p-10">
               <h2 class="text-uppercase text-center mb-2">ایجاد حساب</h2>
 
-              <form action="" method="post">
+              <form action="doregister" method="post">
 
                 <div class="form-outline mb-1">
                   <label class="form-label" for="form3Example1cg">نام</label>
