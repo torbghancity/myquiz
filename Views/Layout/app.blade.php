@@ -1,3 +1,7 @@
+@php
+use App\Auth\Auth;
+@endphp
+
 <!DOCTYPE html>
 <html lang="en" dir="rtl">
 <head>
@@ -20,7 +24,7 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <ul class="navbar-nav me-auto mb-2 mb-lg-0">
             <li class="nav-item">
-              <a class="nav-link active" aria-current="page" href="/" dideo-checked="true">خانه</a>
+              <a class="nav-link active" aria-current="page" href="exam" dideo-checked="true">خانه</a>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="#" dideo-checked="true">درباره ما</a>
@@ -28,22 +32,35 @@
             <li class="nav-item">
               <a class="nav-link" href="#" dideo-checked="true">تماس با ما</a>
             </li>
-            <?php 
-              if (isset($_COOKIE["id_token"])){
-            ?>
-            <!--    <li class="nav-item dropdown">
+            @php
+              if ($userdata = Auth::user()) {
+            @endphp
+                <li class="nav-item dropdown">
                   <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false" dideo-checked="true">
-                    <?php //echo $user_title; ?>
+                    {{$userdata["name"]}}
                   </a>
                   <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                     <li><a class="dropdown-item" href="#" dideo-checked="true">مشخصات</a></li>                
                     <li><hr class="dropdown-divider"></li>
-                    <li><a class="dropdown-item" href="logout.php" dideo-checked="true">خروج</a></li>
+                    <li><a class="dropdown-item" href="logout" dideo-checked="true">خروج</a></li>
                   </ul>
-                </li>-->
-            <?php
+                </li>
+            @php
+              }else{
+            @endphp
+                <li class="nav-item dropdown">
+                  <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false" dideo-checked="true">
+                    کاربری
+                  </a>
+                  <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <li><a class="dropdown-item" href="login" dideo-checked="true">ورود</a></li>                
+                    <li><hr class="dropdown-divider"></li>
+                    <li><a class="dropdown-item" href="register" dideo-checked="true">ایجاد حساب</a></li>
+                  </ul>
+                </li>     
+            @php
               }
-            ?>       
+            @endphp    
           </ul>
         </div>
       </div>

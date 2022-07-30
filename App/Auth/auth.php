@@ -7,45 +7,29 @@ use App\Models\User;
 class Auth
 {
 
-    public function login($username,$pass){
-
-        if ($username!= "" || $pass != ""){
-
-            $user=new User;
-
-            $result=$user->check_user($username,$pass);
-
-            if($result!=null){
-                $user->set_cookie($username);
-                return "yes";
-
-            }else{
-                return "نام کاربری یا رمز ورود اشتباه است";
-            }
-        }else{
-            return "تمام موارد را با دقت کامل کنید";
-        }
-
+    public static function login($userId)
+    {
+        $token = random_int(10000000000, 99999999999999);
+        $user = new User;
+        $user->updateToken($userId, $token);
+        setcookie("id_token", $token);
+        return $token;   
     }
 
-    public function find_user($id_token){
-
-        $sql = "SELECT * FROM `user` WHERE `id_token` = '$id_token';";
-        $result=mysqli_query($this->dbconn,$sql);
+    public static function user()
+    {
+        if (!isset($_COOKIE["id_token"])) {
+            return null;
+        }
         
-        if(mysqli_num_rows($result)>0){
-
-            $user = mysqli_fetch_assoc ($result);
-            return $user["name"];
-
-        }
+        $user= new User;
+        $result = $user->find_usertoken($_COOKIE["id_token"]);
+        return $result;
     }
 
-    public function logout(){
+    public static function logout()
+    {
         setcookie("id_token", "");
-        header("location:./login.php");
     }
-
 
 }
-

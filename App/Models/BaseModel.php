@@ -1,16 +1,17 @@
-<?php
+<?php 
 
 namespace App\Models;
 
 use App\Db\DbConnection;
 
+
 class BaseModel{
-    protected $dbconn;
+
+    protected $dbCon;
+
     public function __construct()
     {
-        $dbconnection = new DbConnection;
-        $this->dbconn = $dbconnection->connect(); 
-        
-        
+        $dbConnection = new DbConnection;
+        $this->dbCon = $dbConnection->connect();    
     }
 }

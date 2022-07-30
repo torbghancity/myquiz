@@ -1,9 +1,8 @@
 @extends("Layout.app")
 
-@section('Title', 'ورود)
+@section('Title', 'انتخاب سوالات')
 
 @section("content")
-
 
 <section class="vh-100 gradient-custom">
   <div class="container py-2 h-100">
@@ -16,7 +15,7 @@
 
                 <h2 class="fw-bold mb-2 text-uppercase">ورود</h2>
                 <p class="text-white-50 mb-5">لطفا نام کاربری و رمز عبور خود را وارد کنید!</p>
-                <form action="./login.php" method="post" class="row g-3 needs-validation" novalidate >
+                <form action="/dologin" method="post" class="row g-3 needs-validation" novalidate >
                     <div class="form-outline form-white mb-4">
                         <input type="text" name="username" class="form-control form-control-lg" />
                         <label class="form-label" for="typeEmailX">نام کاربری</label>
@@ -36,7 +35,7 @@
             </div>
             
             <div>
-                <p class="mb-0">اگر ثبت نام نکرده اید? <a href="./register.php" class="text-white-50 fw-bold">ثبت نام کنید</a>
+                <p class="mb-0">اگر ثبت نام نکرده اید? <a href="register" class="text-white-50 fw-bold">ثبت نام کنید</a>
                 </p>
             </div>
                 

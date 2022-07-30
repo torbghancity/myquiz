@@ -1,17 +1,21 @@
 {
-    "name": "mobilesignal/myquiz",
+    "name": "mobilesignal/new-for-quiz",
     "autoload": {
         "psr-4": {
-            "Mobilesignal\\Myquiz\\": "src/",
+            "Mobilesignal\\NewForQuiz\\": "src/",
             "App\\" : "App/"
         },
         "files": [
-            "./Public/function.php"
-        ]        
+            "function.php"
+        ]
     },
+    "authors": [
+        {
+            "name": "skip"
+        }
+    ],
     "require": {
-        "jenssegers/blade": "^1.4",
-        "voku/arrayy": "^7.9",
-        "bramus/router": "~1.6"
+        "bramus/router": "~1.6",
+        "jenssegers/blade": "^1.4"
     }
 }

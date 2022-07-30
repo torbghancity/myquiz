@@ -27,7 +27,7 @@
 
                 <div class="form-outline mb-1">
                   <label class="form-label" for="form3Example1cg">شماه تلفن</label>
-                  <input type="text" name="contact" class="form-control form-control-lg" />                  
+                  <input type="tel" name="phone" maxlength="14" class="form-control form-control-lg" />                  
                 </div>
 
                 <div class="form-outline mb-1">
@@ -56,7 +56,7 @@
                   {{$error}}
                 </div>
 
-                <p class="text-center text-muted mt-5 mb-0">اگر قبلا ثبت نام کرده اید؟ <a href="./login.php"
+                <p class="text-center text-muted mt-5 mb-0">اگر قبلا ثبت نام کرده اید؟ <a href="login"
                     class="fw-bold text-body"><u>ورود</u></a></p>
 
               </form>

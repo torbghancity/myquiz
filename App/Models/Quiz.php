@@ -2,15 +2,13 @@
 
 namespace App\Models;
 
-use Arrayy\Arrayy;
-
-class Quiz_online extends BaseModel
+class Quiz extends BaseModel
 {
 
     function get_all_exam(){
         $sql= 
             "SELECT * FROM `exam_category` ORDER BY `id` ASC;";
-        $result = mysqli_query($this->dbconn,$sql);
+        $result = mysqli_query($this->dbCon,$sql);
         $list_exam= array();
         while ($row=mysqli_fetch_array($result)){
             $list_exam[]=$row;
@@ -23,7 +21,7 @@ class Quiz_online extends BaseModel
     {
         $sql= 
             "SELECT * FROM `exam_category` ORDER BY `id` ASC;";
-        $result = mysqli_query($this->dbconn,$sql);
+        $result = mysqli_query($this->dbCon,$sql);
         $list_exam= array();
         while ($row=mysqli_fetch_array($result)){
             $list_exam[]=$row;
@@ -36,7 +34,7 @@ class Quiz_online extends BaseModel
     {
         $sql= 
             "SELECT * FROM `exam_category` WHERE `id_category` = '$id_category';";
-        $result = mysqli_query($this->dbconn,$sql);
+        $result = mysqli_query($this->dbCon,$sql);
 
 
         return mysqli_fetch_assoc($result);
@@ -46,7 +44,7 @@ class Quiz_online extends BaseModel
     {
         $sql= 
             "SELECT * FROM `questions` WHERE `id_category` = '$id_category' ORDER BY `question_no` ASC;";
-        $result = mysqli_query($this->dbconn,$sql);
+        $result = mysqli_query($this->dbCon,$sql);
 
         $list_question= array();
         while ($row=mysqli_fetch_array($result)){
@@ -58,4 +56,3 @@ class Quiz_online extends BaseModel
     }
 
 }
-
