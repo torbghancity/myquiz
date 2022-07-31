@@ -1,22 +1,27 @@
 <?php
 
 return [
-    "/" => "HomeControllers@Home",
-    "/exam" => "HomeControllers@ShowExam",
-    "/login" => "AuthControllers@HomeLogin",
-    "/dologin" => "AuthControllers@DoLogin",
-    "/register" => "AuthControllers@HomeRegister",
-    "/doregister" => "AuthControllers@DoRegister",
-    "/logout" => "AuthControllers@Logout",
-    "/storenewtodoItem" => "HomeControllers@store",
+    "/" => "User@HomeControllers@Home",
+    "/exam" => "User@QuizControllers@ShowExam",
+    "/login" => "User@AuthControllers@HomeLogin",
+    "/dologin" => "User@AuthControllers@DoLogin",
+    "/register" => "User@AuthControllers@HomeRegister",
+    "/doregister" => "User@AuthControllers@DoRegister",
+    "/logout" => "User@AuthControllers@Logout",
+    "/admin" => "Admin@AuthControllers@HomeLogin",
+    "/login_admin" => "Admin@AuthControllers@DoLogin",
+    "/exam_admin" => "Admin@QuizControllers@ShowExam",
+    
+    
+    
     /*
     
     
-    "/donetodoItem" => "HomeControllers@done",
     
+    "/storenewtodoItem" => "HomeControllers@store",
     "/contact" => "ContactControllers@home",
     "/messagesinsert" => "ContactControllers@insert",
     "/about" => "PublicControllers@about",
     "/test" => "TestControllers@testhome",
-    "/mytest" => "TestControllers@test",*/
+    "/mytest" => "User@TestControllers@test",*/
 ];

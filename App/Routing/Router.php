@@ -21,8 +21,10 @@ class Router
             $act = $routes[$route];
             $act=explode("@",$act);
         
-            $controllerName = "\\App\\Controllers\\$act[0]";
-            $action = $act[1];
+            
+
+            $controllerName = "\\App\\Controllers\\$act[0]\\$act[1]";
+            $action = $act[2];
             $controller = new $controllerName;
             $controller->$action();
             exit;
