@@ -11,7 +11,7 @@ class Router
 
         $routes = require ("../routes/routes.php");
 
-        if (preg_match('/\.(?:png|jpg|jpeg|gif|css|js)$/',$route)){
+        if (preg_match('/\.(?:png|jpg|jpeg|gif|css|js|ico)$/',$route)){
             return false;
         }
 
