@@ -106,7 +106,9 @@ class QuestionControllers
                 "question"=>$question,"id"=>$_POST['id'],
                 "error"=>""]);
         }else{
-            die ("text");
+            Layout::render('Admin.Question.edit_txt_question',["id_category"=>$_POST['id_category'],
+                "question"=>$question,"id"=>$_POST['id'],
+                "error"=>""]);
         }
         
 
@@ -144,6 +146,29 @@ class QuestionControllers
                 "question"=>$question->get_question_by_id($_POST['id']),"id"=>$_POST['id'],
                 "error"=>"لطفا تمام موارد را با دقت کامل کنید"]);
         }
+    }
+
+    public function EditQuestionText()
+    {
+        $question = new Question;
+        $question->question = htmlspecialchars($_POST["question"]);
+        $question->answer = htmlspecialchars($_POST["answer"]);
+        $question->opt1 = htmlspecialchars($_POST["opt1"]);
+        $question->opt2 = htmlspecialchars($_POST["opt2"]);
+        $question->opt3 = htmlspecialchars($_POST["opt3"]);
+        $question->opt4 = htmlspecialchars($_POST["opt4"]);
+        $question->id_category = htmlspecialchars($_POST["id_category"]);
+
+        $result = $question->edit_txt_question($_POST["id"]);
+
+        if($result){
+            $this->ShowQuestion();
+        }else{
+            Layout::render('Admin.Question.edit_txt_question',["id_category"=>$_POST['id_category'],
+                "question"=>$question->get_question_by_id($_POST['id']),"id"=>$_POST['id'],
+                "error"=>"لطفا تمام موارد را با دقت کامل کنید"]);
+        }
+
     }
 
 }

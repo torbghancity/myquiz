@@ -174,4 +174,20 @@ class Question extends BaseModel
         }
     }
 
+    public function edit_txt_question($id)
+    {
+        
+        if ($this->question!="" && $this->answer!="" && $this->opt1!="" && $this->opt2!="" && $this->opt3!="" && $this->opt4!=""){
+
+            $sql = "UPDATE `questions` SET `question`= '$this->question' , `opt1`= '$this->opt1' , 
+                `opt2`= '$this->opt2' , `opt3`= '$this->opt3' , `opt4`= '$this->opt4', 
+                `answer`= '$this->answer' WHERE `id`=$id;";
+            mysqli_query($this->dbCon,$sql);
+            
+            return true;
+        }else{
+            return false;
+        }
+    }
+
 }

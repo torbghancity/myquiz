@@ -22,4 +22,5 @@ return [
     "/delquestion" => "Admin@QuestionControllers@DelQuestion",
     "/findquestion" => "Admin@QuestionControllers@FindTextOrImg",
     "/editquestionimg" => "Admin@QuestionControllers@EditQuestionImg",
+    "/editquestiontxt" => "Admin@QuestionControllers@EditQuestionText",
 ];
