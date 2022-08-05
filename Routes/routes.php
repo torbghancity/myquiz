@@ -18,4 +18,8 @@ return [
     "/selectexam" => "Admin@QuestionControllers@ShowSelectExam",
     "/question" => "Admin@QuestionControllers@ShowQuestion",
     "/addquestiontext" => "Admin@QuestionControllers@AddQuestionText",
+    "/addquestionimage" => "Admin@QuestionControllers@AddQuestionImg",
+    "/delquestion" => "Admin@QuestionControllers@DelQuestion",
+    "/findquestion" => "Admin@QuestionControllers@FindTextOrImg",
+    "/editquestionimg" => "Admin@QuestionControllers@EditQuestionImg",
 ];

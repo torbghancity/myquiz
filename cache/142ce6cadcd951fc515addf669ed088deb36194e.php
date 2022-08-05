@@ -1,14 +1,14 @@
-@extends("Layout.main")
 
-@section('Title', 'ورود ادمین')
 
-@section("content")
+<?php $__env->startSection('Title', 'ورود ادمین'); ?>
+
+<?php $__env->startSection("content"); ?>
 
     <div class="breadcrumbs">
         <div class="col-sm-4">
             <div class="page-header float-left">
                 <div class="page-title">
-                    <h1>Add Question Inside -><span style='color:red'>{{$category}}</span></h1>
+                    <h1>Add Question Inside -><span style='color:red'><?php echo e($category); ?></span></h1>
                 </div>
             </div>
         </div>
@@ -50,11 +50,12 @@
                                                 <input type="text" name="answer" class="form-control">
                                             </div>
                                             <div class="form-group">
-                                                <input type="hidden" name="id_category" value="{{$id_category}}">
+                                                <input type="hidden" name="id_category" value="<?php echo e($id_category); ?>">
                                                 <button type="submit" name="insert_text" class="btn btn-lg btn-info btn-success">Add Question</button>
                                             </div>
                                             <div class="alert alert-light" role="alert">
-                                                {{$error_text}}
+                                                <?php echo e($error_text); ?>
+
                                             </div>
                                         </form>  
                                     </div>
@@ -90,11 +91,12 @@
                                                 <input type="file" name="f_answer" class="form-control" style="padding-bottom:35px">
                                             </div>
                                             <div class="form-group">
-                                                <input type="hidden" name="id_category" value="{{$id_category}}">
+                                                <input type="hidden" name="id_category" value="<?php echo e($id_category); ?>">
                                                 <button type="submit" name="insert_image" class="btn btn-lg btn-info btn-success">Add Question</button>
                                             </div>
                                             <div class="alert alert-light" role="alert">
-                                               {{$error_img}}
+                                               <?php echo e($error_img); ?>
+
                                             </div>
                                         </form>  
                                     </div>
@@ -126,77 +128,82 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    @php
+                                    <?php
                                         if (!empty($question_list)){                                                            
                                             foreach($question_list as $question){
-                                                @endphp
+                                                ?>
                                                 <tr>
-                                                    <th scope="row">{{$question['question_no']}}</th>
-                                                    <td>{{$question['question']}}</td>
+                                                    <th scope="row"><?php echo e($question['question_no']); ?></th>
+                                                    <td><?php echo e($question['question']); ?></td>
                                                     <td>
                                                         
-                                                        @if(strpos($question['opt1'],"opt_images/")!==false)
-                                                            <img src="{{$question['opt1']}}" alt="Opt1" height="50px" width="50px">
-                                                        @else
-                                                            {{$question['opt1']}}
-                                                        @endif
+                                                        <?php if(strpos($question['opt1'],"opt_images/")!==false): ?>
+                                                            <img src="<?php echo e($question['opt1']); ?>" alt="Opt1" height="50px" width="50px">
+                                                        <?php else: ?>
+                                                            <?php echo e($question['opt1']); ?>
+
+                                                        <?php endif; ?>
 
                                                     </td>
                                                     <td>
                                                         
-                                                        @if(strpos($question['opt2'],"opt_images/")!==false)
-                                                            <img src="{{$question['opt2']}}" alt="Opt2" height="50px" width="50px">
-                                                        @else
-                                                            {{$question['opt2']}}
-                                                        @endif
+                                                        <?php if(strpos($question['opt2'],"opt_images/")!==false): ?>
+                                                            <img src="<?php echo e($question['opt2']); ?>" alt="Opt2" height="50px" width="50px">
+                                                        <?php else: ?>
+                                                            <?php echo e($question['opt2']); ?>
+
+                                                        <?php endif; ?>
 
                                                     </td>
                                                     <td>
 
-                                                        @if(strpos($question['opt3'],"opt_images/")!==false)
-                                                            <img src="{{$question['opt3']}}" alt="Opt3" height="50px" width="50px">
-                                                        @else
-                                                            {{$question['opt3']}}
-                                                        @endif
+                                                        <?php if(strpos($question['opt3'],"opt_images/")!==false): ?>
+                                                            <img src="<?php echo e($question['opt3']); ?>" alt="Opt3" height="50px" width="50px">
+                                                        <?php else: ?>
+                                                            <?php echo e($question['opt3']); ?>
+
+                                                        <?php endif; ?>
 
                                                     </td>
                                                     <td>
 
-                                                        @if(strpos($question['opt4'],"opt_images/")!==false)
-                                                            <img src="{{$question['opt4']}}" alt="Opt4" height="50px" width="50px">
-                                                        @else
-                                                            {{$question['opt1']}}
-                                                        @endif
+                                                        <?php if(strpos($question['opt4'],"opt_images/")!==false): ?>
+                                                            <img src="<?php echo e($question['opt4']); ?>" alt="Opt4" height="50px" width="50px">
+                                                        <?php else: ?>
+                                                            <?php echo e($question['opt1']); ?>
+
+                                                        <?php endif; ?>
 
                                                     </td>
                                                     <td>
 
-                                                        @if(strpos($question['answer'],"opt_images/")!==false)
-                                                            <img src="{{$question['answer']}}" alt="answer" height="50px" width="50px">
-                                                        @else
-                                                            {{$question['answer']}}
-                                                        @endif
+                                                        <?php if(strpos($question['answer'],"opt_images/")!==false): ?>
+                                                            <img src="<?php echo e($question['answer']); ?>" alt="answer" height="50px" width="50px">
+                                                        <?php else: ?>
+                                                            <?php echo e($question['answer']); ?>
+
+                                                        <?php endif; ?>
 
                                                     </td>
                                                     <td>
                                                         <form action="findquestion" method="post">
-                                                            <input type="hidden" name="id_category" value="{{$question['id_category']}}">
-                                                            <input type="hidden" name="id" value="{{$question['id']}}">
+                                                            <input type="hidden" name="id_category" value="<?php echo e($question['id_category']); ?>">
+                                                            <input type="hidden" name="id" value="<?php echo e($question['id']); ?>">
                                                             <button type="submit">Edit</button>
                                                         </form>
                                                     </td>                                                                    
                                                     <td>
                                                         <form action="delquestion" method="post">
-                                                            <input type="hidden" name="id_category" value="{{$question['id_category']}}">
-                                                            <input type="hidden" name="id" value="{{$question['id']}}">
+                                                            <input type="hidden" name="id_category" value="<?php echo e($question['id_category']); ?>">
+                                                            <input type="hidden" name="id" value="<?php echo e($question['id']); ?>">
                                                             <button type="submit">Del</button>
                                                         </form>
                                                     </td>                                                                    
                                                 </tr> 
-                                                @php
+                                                <?php
                                             }
                                         }
-                                    @endphp                                                    
+                                    ?>                                                    
                                 </tbody>
                             </table>
                         </div>
@@ -205,4 +212,5 @@
             </div>
         </div>
     </div>
-@endsection
+<?php $__env->stopSection(); ?>
+<?php echo $__env->make("Layout.main", \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH D:\html.project\PHP\NewForQuiz\Views/Admin/Question/add_edit_question.blade.php ENDPATH**/ ?>
