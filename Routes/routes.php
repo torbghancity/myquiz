@@ -23,4 +23,5 @@ return [
     "/findquestion" => "Admin@QuestionControllers@FindTextOrImg",
     "/editquestionimg" => "Admin@QuestionControllers@EditQuestionImg",
     "/editquestiontxt" => "Admin@QuestionControllers@EditQuestionText",
+    "/createdb" => "Db@DbControllers@CreateDb",
 ];
