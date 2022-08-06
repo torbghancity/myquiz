@@ -24,25 +24,25 @@
                                 <div class="ans ml-2">
                                     <label class="radio">
                                         <input type="radio" name="opt1" >
-                                        <img src="admin/ {{$quiz[3]['opt1']}}" alt="opt1" height="50px" width="50px">
+                                        <img src="public/{{$quiz[3]['opt1']}}" alt="opt1" height="50px" width="50px">
                                     </label>    
                                 </div>
                                 <div class="ans ml-2">
                                     <label class="radio">
                                         <input type="radio" name="opt2">
-                                        <img src="admin/ {{$quiz[3]['opt2']}}" alt="opt2" height="50px" width="50px">
+                                        <img src="public/{{$quiz[3]['opt2']}}" alt="opt2" height="50px" width="50px">
                                     </label>    
                                 </div>
                                 <div class="ans ml-2">
                                     <label class="radio"> 
                                         <input type="radio" name="opt3"> 
-                                        <img src="admin/{{$quiz[3]['opt3']}}" alt="opt3" height="50px" width="50px">
+                                        <img src="public/{{$quiz[3]['opt3']}}" alt="opt3" height="50px" width="50px">
                                     </label>    
                                 </div>
                                 <div class="ans ml-2">
                                     <label class="radio"> 
                                         <input type="radio" name="opt4"> 
-                                        <img src="admin/{{$quiz[3]['opt4']}}" alt="opt4" height="50px" width="50px">
+                                        <img src="public/{{$quiz[3]['opt4']}}" alt="opt4" height="50px" width="50px">
                                     </label>    
                                 </div>
                             </div>
