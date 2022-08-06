@@ -3,6 +3,7 @@
 return [
     "/" => "User@HomeControllers@Home",
     "/exam" => "User@QuizControllers@ShowExam",
+    "/showquiz" => "User@QuizControllers@ShowQuiz",
     "/login" => "User@AuthControllers@HomeLogin",
     "/dologin" => "User@AuthControllers@DoLogin",
     "/register" => "User@AuthControllers@HomeRegister",
