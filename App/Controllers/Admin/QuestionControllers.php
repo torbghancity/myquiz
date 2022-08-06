@@ -110,12 +110,6 @@ class QuestionControllers
                 "question"=>$question,"id"=>$_POST['id'],
                 "error"=>""]);
         }
-        
-
-        /*$editquestion->id_category=$_POST['id_category'];
-        $editquestion->sort_question();
-
-        $this->ShowQuestion();*/
     }
 
     public function EditQuestionImg()
