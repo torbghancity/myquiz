@@ -18,7 +18,7 @@ class QuizControllers
         if (count($exam_list)>0){
             Layout::render('User.Quiz.home',["exam_list"=>$exam_list,"logo"=>"یکی از آزمونها را انتخاب کنید","error"=>""]);
         }else{
-            Layout::render('User.Quiz.home',["exam_list"=>[""],"logo"=>"هیچ آزمونی پیدا نشد","error"=>""]);
+            Layout::render('User.Quiz.home',["exam_list"=>$exam_list,"logo"=>"هیچ آزمونی پیدا نشد","error"=>""]);
         }
     }
 

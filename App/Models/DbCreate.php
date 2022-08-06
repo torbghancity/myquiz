@@ -52,6 +52,7 @@ class DbCreate extends BaseModel
                 id INT(5) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
                 name VARCHAR(250) NOT NULL,
                 username VARCHAR(250) NOT NULL,
+                phone VARCHAR(100) NOT NULL,
                 password VARCHAR(250) NOT NULL,
                 id_token VARCHAR(100) NULL,
                 email VARCHAR(100) NOT NULL);";
