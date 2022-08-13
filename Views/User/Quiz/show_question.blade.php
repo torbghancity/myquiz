@@ -19,30 +19,30 @@
                             <h3 class="text-danger">{{$quiz["0"]["question_no"]}} -> </h3>
                             <h5 class="mt-1 ml-2">{{$quiz["0"]["question"]}}</h5>
                         </div>
-                            @if(strpos($quiz[3]['opt2'],"opt_images/")!==false)
+                            @if(strpos($quiz[0]['opt2'],"opt_images/")!==false)
                                 <!--show question image-->
                                 <div class="ans ml-2">
                                     <label class="radio">
                                         <input type="radio" name="opt1" >
-                                        <img src="public/{{$quiz[3]['opt1']}}" alt="opt1" height="50px" width="50px">
+                                        <img src="public/{{$quiz[0]['opt1']}}" alt="opt1" height="50px" width="50px">
                                     </label>    
                                 </div>
                                 <div class="ans ml-2">
                                     <label class="radio">
                                         <input type="radio" name="opt2">
-                                        <img src="public/{{$quiz[3]['opt2']}}" alt="opt2" height="50px" width="50px">
+                                        <img src="public/{{$quiz[0]['opt2']}}" alt="opt2" height="50px" width="50px">
                                     </label>    
                                 </div>
                                 <div class="ans ml-2">
                                     <label class="radio"> 
                                         <input type="radio" name="opt3"> 
-                                        <img src="public/{{$quiz[3]['opt3']}}" alt="opt3" height="50px" width="50px">
+                                        <img src="public/{{$quiz[0]['opt3']}}" alt="opt3" height="50px" width="50px">
                                     </label>    
                                 </div>
                                 <div class="ans ml-2">
                                     <label class="radio"> 
                                         <input type="radio" name="opt4"> 
-                                        <img src="public/{{$quiz[3]['opt4']}}" alt="opt4" height="50px" width="50px">
+                                        <img src="public/{{$quiz[0]['opt4']}}" alt="opt4" height="50px" width="50px">
                                     </label>    
                                 </div>
                             </div>
